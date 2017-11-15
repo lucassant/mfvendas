@@ -1,0 +1,38 @@
+<p></p>
+<p></p>
+
+<div class="row" *ngIf="promocao">  
+    <div class="col s6">
+        <h4>{{ promocao.descricao_promocao }}</h4>
+    </div>
+    <div class="col s6">
+        <h4>{{ promocao.data_inicial | date:'dd/MM/yyyy' }} a {{ promocao.data_final | date:'dd/MM/yyyy' }}</h4>
+    </div>
+</div>
+
+<p></p>
+<p></p>
+
+<table class="table table-hover">
+    <thead>
+      <tr>        
+        <th style="width:40%">Item</th>
+        <th class="text-right" style="width:15%">Prazo</th>
+        <th class="text-right" style="width:15%">Unidade</th>
+        <th class="text-right" style="width:10%">Qtd inicial</th>
+        <th class="text-right" style="width:10%">Qtd final</th>
+        <th class="text-right" style="width:10%">Preço</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let t of lancamentos">        
+        <td >{{ t.item }}</td>
+        <td class="text-right">{{ t.prazo }}</td>
+        <td class="text-right">{{ t.unidade }}</td>
+        <td class="text-right">{{ t.quantidade_inicial | number:'1.2' }}</td>
+        <td class="text-right">{{ t.quantidade_final | number:'1.2' }}</td>
+        <td class="text-right">R$ {{ t.preco_promocao | number:'1.2' }}</td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,21 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Descrição</th>
+      <th>Data inicial</th>
+      <th>Data final</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let t of promocoes">
+      <td>{{ t.numero_controle }}</td>
+      <td>{{ t.descricao_promocao }}</td>
+      <td>{{ t.data_inicial | date:'dd/MM/yyyy' }}</td>
+      <td>{{ t.data_final | date:'dd/MM/yyyy' }}</td>
+      <td><a href="" (click)="$event.stopPropagation();" [routerLink]="['/promocao/'+t.numero_controle]">Visualizar</a></td>
+    </tr>
+  </tbody>
+</table>
